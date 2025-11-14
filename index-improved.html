@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سید امیرحسین آقامیرعبدالله - توسعه‌دهنده فول استک</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            direction: rtl;
+            text-align: right;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header-card h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-card .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main Content Card */
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        /* Skills Progress Bars */
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .skill-percentage {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .progress {
+            background: linear-gradient(90deg, #f0f0f0, #e0e0e0);
+            border-radius: 50px;
+            overflow: hidden;
+            height: 12px;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 50px;
+            transition: width 1.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Experience List */
+        .experience-list li,
+        .general-skills-list li {
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ebff 100%);
+            border-radius: 10px;
+            border-right: 4px solid #667eea;
+            transition: all 0.3s ease;
+            list-style: none;
+        }
+
+        .experience-list li:hover,
+        .general-skills-list li:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Highlight Text */
+        .highlight {
+            color: #667eea;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Project Links */
+        .project-link {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 5px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        .project-link i {
+            margin-left: 8px;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #f8f9ff, #e8ebff);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #667eea;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .download-btn i {
+            margin-left: 10px;
+        }
+
+        /* Grid Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Database Section */
+        .database-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* About Section */
+        .about-text {
+            line-height: 2;
+            color: #444;
+            font-size: 1.05rem;
+        }
+
+        .about-text strong {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-card h1 {
+                font-size: 2rem;
+            }
+
+            .header-card .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Icon Badge */
+        .icon-badge {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-left: 10px;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .content-card:nth-child(1) { animation-delay: 0.1s; }
+        .content-card:nth-child(2) { animation-delay: 0.2s; }
+        .content-card:nth-child(3) { animation-delay: 0.3s; }
+        .content-card:nth-child(4) { animation-delay: 0.4s; }
+        .content-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-card">
+            <h1><i class="fas fa-user-tie"></i> سید امیر حسین آقامیرعبدالله</h1>
+            <p class="subtitle"><i class="fas fa-code"></i> توسعه‌دهنده فول استک | بیش از ۸ سال تجربه</p>
+        </div>
+
+        <!-- About Section -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> درباره من</h2>
+            <div class="about-text">
+                <p style="margin-bottom: 20px;">
+                    توسعه‌دهنده وب با <strong>بیش از ۸ سال تجربه</strong> در زبان‌های برنامه‌نویسی متنوع شامل
+                    <strong>Python</strong>، <strong>PHP</strong>، و <strong>JavaScript</strong>.
+                    متخصص فول استک در سطح میدلول با توانمندی‌های گسترده در طراحی و پیاده‌سازی سامانه‌های پیچیده و مدیریت پروژه‌های فناوری اطلاعات.
+                </p>
+
+                <h3 style="color: #667eea; font-size: 1.3rem; margin: 25px 0 15px;"><i class="fas fa-tools"></i> مهارت‌های فنی:</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 12px;">
+                        <i class="fas fa-check-circle" style="color: #667eea; margin-left: 8px;"></i>
+                        <strong>برنامه‌نویسی:</strong> تخصص در زبان‌های <span class="highlight">Python</span>، <span class="highlight">PHP</span>، <span class="highlight">Lua</span>، <span class="highlight">Bash</span>، و <span class="highlight">JavaScript</span>
+                    </li>
+                    <li style="margin-bottom: 12px;">
+                        <i class="fas fa-check-circle" style="color: #667eea; margin-left: 8px;"></i>
+                        <strong>تحلیل داده‌ها:</strong> تجربه در تحلیل داده‌ها با استفاده از ابزارهای پیشرفته و توانمندی در استخراج و پردازش داده‌ها از منابع مختلف
+                    </li>
+                    <li style="margin-bottom: 12px;">
+                        <i class="fas fa-check-circle" style="color: #667eea; margin-left: 8px;"></i>
+                        <strong>اتوماسیون:</strong> مهارت در اتوماسیون شبکه‌های اجتماعی نظیر Telegram Bot API و Telegram Bot CLI، همچنین توانایی در اتوماسیون پلتفرم‌هایی مانند Instagram، Rubika و Eita
+                    </li>
+                    <li style="margin-bottom: 12px;">
+                        <i class="fas fa-check-circle" style="color: #667eea; margin-left: 8px;"></i>
+                        <strong>توسعه وب:</strong> تخصص در HTML، CSS، Bootstrap v5، Tailwind CSS، و Vue.js
+                    </li>
+                    <li style="margin-bottom: 12px;">
+                        <i class="fas fa-check-circle" style="color: #667eea; margin-left: 8px;"></i>
+                        <strong>فریم‌ورک‌ها:</strong> تجربه در کار با فریم‌ورک‌های PHP از جمله <span class="highlight">Laravel</span> و همچنین <span class="highlight">Django</span> در پایتون. همچنین تجربه در استفاده از میکروفریم‌ورک‌های <span class="highlight">FastAPI</span> و <span class="highlight">Flask</span> برای پیاده‌سازی سریع و کارآمد پروژه‌های پیچیده
+                    </li>
+                </ul>
+
+                <h3 style="color: #667eea; font-size: 1.3rem; margin: 25px 0 15px;"><i class="fas fa-briefcase"></i> تجربه کاری:</h3>
+                <ul class="experience-list">
+                    <li>طراحی و پیاده‌سازی سامانه لایسنس برای مدیریت مشتریان</li>
+                    <li>توسعه سامانه اتوماسیون بر بستر فایربیس</li>
+                    <li>پیاده‌سازی سامانه پایش و رصد بورس ایران</li>
+                    <li>طراحی و اجرای سامانه تبلیغات در بستر فضای مجازی</li>
+                    <li>توسعه سامانه استخراج اطلاعات بر بستر بلاکچین</li>
+                    <li>پیاده‌سازی سامانه رصد وضعیت جاری کریپتو</li>
+                    <li>طراحی سامانه ضد تحریم و تحریم‌شکن</li>
+                </ul>
+
+                <h3 style="color: #667eea; font-size: 1.3rem; margin: 25px 0 15px;"><i class="fab fa-github"></i> پروژه‌های اپن سورس:</h3>
+                <div class="projects-grid">
+                    <a href="https://github.com/specialteam/CryptoScraper" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> CryptoScraper
+                    </a>
+                    <a href="https://github.com/specialteam/TelegramScraper" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> TelegramScraper
+                    </a>
+                    <a href="https://github.com/specialteam/GoWooCommerceAPI" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> GoWooCommerceAPI
+                    </a>
+                    <a href="https://github.com/specialteam/PyWooCommerce" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> PyWooCommerce
+                    </a>
+                    <a href="https://github.com/specialteam/greed_and_fear" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> greed_and_fear
+                    </a>
+                    <a href="https://github.com/specialteam/xobot" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> xobot
+                    </a>
+                    <a href="https://github.com/specialteam/pymediabot" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> pymediabot
+                    </a>
+                    <a href="https://github.com/specialteam/DontEdit" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> DontEdit
+                    </a>
+                    <a href="https://github.com/specialteam/systeminfo" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> systeminfo
+                    </a>
+                    <a href="https://github.com/specialteam/dostet_beshnas" target="_blank" class="project-link">
+                        <i class="fas fa-code-branch"></i> dostet_beshnas
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Companies Section -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-building"></i> همکاری با مجموعه‌ها</h2>
+            <ul class="experience-list">
+                <li><span class="highlight">برنامه‌نویس Backend</span> در مجموعه <span class="highlight">ایرانفالور</span> (حضوری و ریموت)</li>
+                <li><span class="highlight">برنامه‌نویس Senior</span> در مجموعه <span class="highlight">BG</span> (ریموت)</li>
+                <li><span class="highlight">برنامه‌نویس FullStack Developer</span> در مجموعه <span class="highlight">قیمت بازار</span> (حضوری و ریموت)</li>
+                <li><span class="highlight">برنامه‌نویس FullStack Developer</span> در فروشگاه <span class="highlight">عمده تک</span> (حضوری)</li>
+            </ul>
+        </div>
+
+        <!-- General Skills Section -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-certificate"></i> مهارت‌های عمومی</h2>
+            <ul class="general-skills-list">
+                <li><i class="fas fa-desktop" style="color: #667eea; margin-left: 8px;"></i> تسلط به اصول اولیه کامپیوتر و مهارت‌های عمومی کار با انواع سیستم‌های ویندوز و بر پایه هسته لینوکس</li>
+                <li><i class="fas fa-graduation-cap" style="color: #667eea; margin-left: 8px;"></i> دوره‌های ICDL</li>
+                <li><i class="fas fa-network-wired" style="color: #667eea; margin-left: 8px;"></i> شبکه‌سازی</li>
+                <li><i class="fab fa-linux" style="color: #667eea; margin-left: 8px;"></i> مهارت‌های Lpic 1 - Lpic 2</li>
+            </ul>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-code"></i> مهارت‌های تخصصی</h2>
+            <div class="skills-grid">
+                <!-- Programming Skills -->
+                <div>
+                    <h3 style="font-size: 1.5rem; color: #667eea; margin-bottom: 20px;">
+                        <i class="fas fa-laptop-code"></i> برنامه‌نویسی
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-bolt"></i> FastAPI</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-flask"></i> Flask</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-python"></i> Django</span>
+                            <span class="skill-percentage">50%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-php"></i> PHP</span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-laravel"></i> Laravel</span>
+                            <span class="skill-percentage">50%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-chart-line"></i> Data Analysis</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-spider"></i> Web Scraping</span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-robot"></i> Selenium</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-telegram"></i> Telegram Bot API</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-telegram"></i> Telegram Bot CLI</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-code"></i> Lua</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-terminal"></i> Bash</span>
+                            <span class="skill-percentage">50%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development Skills -->
+                <div>
+                    <h3 style="font-size: 1.5rem; color: #667eea; margin-bottom: 20px;">
+                        <i class="fas fa-window-maximize"></i> توسعه وب
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-html5"></i> HTML</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-css3-alt"></i> CSS</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-bootstrap"></i> Bootstrap v5</span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-wind"></i> Tailwind CSS</span>
+                            <span class="skill-percentage">40%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-vuejs"></i> Vue.js</span>
+                            <span class="skill-percentage">40%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 40%;"></div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.3rem; color: #667eea; margin: 30px 0 20px;">
+                        <i class="fas fa-mobile-alt"></i> اتوماسیون شبکه‌های اجتماعی
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fab fa-instagram"></i> Instagram Automation</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-comment"></i> Rubika Automation</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span><i class="fas fa-comments"></i> Eita Automation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Database Section -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-database"></i> دیتابیس‌ها</h2>
+            <div class="database-grid">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span><i class="fas fa-server"></i> Redis</span>
+                        <span class="skill-percentage">60%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span><i class="fas fa-leaf"></i> MongoDB</span>
+                        <span class="skill-percentage">50%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span><i class="fas fa-database"></i> MySQL</span>
+                        <span class="skill-percentage">60%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-address-book"></i> اطلاعات تماس</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:09999961378">09999961378</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:seyed.mirabdollah@gmail.com">seyed.mirabdollah@gmail.com</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="download-btn" onclick="window.print()">
+                    <i class="fas fa-download"></i>
+                    دانلود رزومه
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animate progress bars on page load
+        window.addEventListener('load', function() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
+</body>
+
+</html>
